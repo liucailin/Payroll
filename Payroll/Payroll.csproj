@@ -46,22 +46,30 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Transaction.cs" />
-    <Compile Include="PayrollDatabase.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="PaymentClassification.cs" />
-    <Compile Include="PaymentSchedule.cs" />
-    <Compile Include="PaymentMethod.cs" />
-    <Compile Include="HoldMethod.cs" />
-    <Compile Include="MonthlySchedule.cs" />
-    <Compile Include="SalariedClassification.cs" />
     <Compile Include="Test\PayrollTest.cs" />
     <Compile Include="Transaction\AddEmployeeTransaction.cs" />
     <Compile Include="Transaction\AddSalariedEmployee.cs" />
+    <Compile Include="Transaction\AddHourlyEmployee.cs" />
+    <Compile Include="PaymentSchedule\MonthlySchedule.cs" />
+    <Compile Include="PaymentClassification\HourlyClassification.cs" />
+    <Compile Include="PaymentClassification\PaymentClassification.cs" />
+    <Compile Include="PaymentMethod\PaymentMethod.cs" />
+    <Compile Include="Transaction\Transaction.cs" />
+    <Compile Include="PaymentSchedule\PaymentSchedule.cs" />
+    <Compile Include="PaymentClassification\SalariedClassification.cs" />
+    <Compile Include="PaymentMethod\HoldMethod.cs" />
+    <Compile Include="Employee\Employee.cs" />
+    <Compile Include="Employee\PayrollDatabase.cs" />
+    <Compile Include="PaymentSchedule\WeeklySchedule.cs" />
+    <Compile Include="PaymentSchedule\BiweeklySchedule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Test\" />
     <Folder Include="Transaction\" />
+    <Folder Include="PaymentMethod\" />
+    <Folder Include="PaymentSchedule\" />
+    <Folder Include="PaymentClassification\" />
+    <Folder Include="Employee\" />
   </ItemGroup>
 </Project>
