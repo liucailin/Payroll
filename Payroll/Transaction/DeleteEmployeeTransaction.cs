@@ -8,29 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-using System.Collections;
 namespace Payroll
 {
-	class PayrollDatabase
+	class DeleteEmployeeTransaction : Transaction
 	{
-		private static Hashtable employees = new Hashtable();
+		private readonly int id;
 
-		public static void AddEmployee(int id, Employee employee)
+		public DeleteEmployeeTransaction (int id)
 		{
-			employees.Add(id, employee);
+			this.id = id;
 		}
 
-		public static Employee GetEmployee(int id)
+		public void Execute ()
 		{
-			return employees[id] as Employee;
-		}
-
-		public static void DeleteEmployee(int id)
-		{
-			if (employees.ContainsKey(id))
-			{
-				employees.Remove(id);
-			}
+			PayrollDatabase.DeleteEmployee(id);
 		}
 	}
 }

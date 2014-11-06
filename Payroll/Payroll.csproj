@@ -64,6 +64,7 @@
     <Compile Include="PaymentSchedule\BiweeklySchedule.cs" />
     <Compile Include="Transaction\AddCommissiondEmployee.cs" />
     <Compile Include="PaymentClassification\CommissionClassification.cs" />
+    <Compile Include="Transaction\DeleteEmployeeTransaction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

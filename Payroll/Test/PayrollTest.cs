@@ -67,10 +67,12 @@ namespace Payroll.Test
 			t.Execute();
 			
 			Employee e = PayrollDatabase.GetEmployee(empId);
-			Assert.AreEqual("Jack", e.Name);
+			Assert.IsNotNull(e);
 
-			PayrollDatabase.RemoveEmployee(empId);
-			Assert.AreEqual(null, PayrollDatabase.GetEmployee(empId));
+			new DeleteEmployeeTransaction(empId).Execute();
+
+			e = PayrollDatabase.GetEmployee(empId);
+			Assert.IsNull(e);
 		}
 	}
 }
