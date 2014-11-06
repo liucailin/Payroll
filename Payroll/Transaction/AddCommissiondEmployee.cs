@@ -7,8 +7,11 @@ namespace Payroll.Test
 	class AddCommissiondEmployee : AddEmployeeTransaction
 	{
 		private readonly float percent;
-		public AddCommissiondEmployee (int id, string name, string address, float percent) : base (id, name, address)
+		private readonly double salary;
+
+		public AddCommissiondEmployee (int id, string name, string address, double salary, float percent) : base (id, name, address)
 		{
+			this.salary = salary;
 			this.percent = percent;
 		}
 

@@ -24,6 +24,14 @@ namespace Payroll
 		{
 			return employees[id] as Employee;
 		}
+
+		public static void RemoveEmployee(int id)
+		{
+			if (employees.ContainsKey(id))
+			{
+				employees.Remove(id);
+			}
+		}
 	}
 }
 

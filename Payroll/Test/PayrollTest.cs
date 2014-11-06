@@ -33,7 +33,7 @@ namespace Payroll.Test
 		public void TestAddHourlyEmployee ()
 		{
 			int empId = 2;
-			AddEmployeeTransaction t = new AddHourlyEmployee(empId, "Lucy", "home", 9.5f);
+			AddEmployeeTransaction t = new AddHourlyEmployee(empId, "Lucy", "home", 100, 9.5f);
 			t.Execute();
 
 			Employee e = PayrollDatabase.GetEmployee(empId);
@@ -48,7 +48,7 @@ namespace Payroll.Test
 		public void TestAddCommissionedEmployee()
 		{
 			int empId = 3;
-			AddEmployeeTransaction t = new AddCommissiondEmployee(empId, "Jack", "home", 0.1f);
+			AddEmployeeTransaction t = new AddCommissiondEmployee(empId, "Jack", "home", 2500, 0.1f);
 			t.Execute();
 
 			Employee e = PayrollDatabase.GetEmployee(empId);
@@ -57,6 +57,20 @@ namespace Payroll.Test
 			Assert.IsTrue(e.Classification is CommissionClassification);
 			Assert.IsTrue(e.Schedule is BiweeklySchedule);
 			Assert.AreEqual(0.1f, (e.Classification as CommissionClassification).Percent, .001);
+		}
+
+		[Test]
+		public void DeleteEmployee()
+		{
+			int empId = 3;
+			AddEmployeeTransaction t = new AddCommissiondEmployee(empId, "Jack", "home", 2500, 0.1f);
+			t.Execute();
+			
+			Employee e = PayrollDatabase.GetEmployee(empId);
+			Assert.AreEqual("Jack", e.Name);
+
+			PayrollDatabase.RemoveEmployee(empId);
+			Assert.AreEqual(null, PayrollDatabase.GetEmployee(empId));
 		}
 	}
 }
