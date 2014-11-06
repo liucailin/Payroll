@@ -8,37 +8,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-using System.Collections;
 namespace Payroll
 {
-	class HourlyClassification : PaymentClassification
+	class TimeCard
 	{
-		private Hashtable timeCards = new Hashtable();
+		private DateTime date;
+		private float hours;
 
-		public HourlyClassification (float hour)
+		public TimeCard (DateTime date, float hours)
 		{
-			Hourly = hour;
+			this.date = date;
+			this.hours = hours;
 		}
+		
 
-		public float Hourly
-		{
-			get; set;
-		}
-
-		public void AddTimeCard(TimeCard timeCard)
-		{
-			timeCards.Add(timeCard.Date.Day, timeCard);
-		}
-
-		public TimeCard GetTimeCard(DateTime date)
-		{
-			if (timeCards.Contains(date.Day))
-			{
-				return timeCards[date] as TimeCard;
+		public DateTime Date {
+			get {
+				return this.date;
 			}
-			return null;
 		}
+
+		public float Hours {
+			get {
+				return this.hours;
+			}
+	    }
 	}
+
 
 }
 
