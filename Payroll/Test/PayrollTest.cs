@@ -43,6 +43,21 @@ namespace Payroll.Test
 			Assert.IsTrue(e.Schedule is WeeklySchedule);
 			Assert.AreEqual(9.5f, (e.Classification as HourlyClassification).Hourly, .001);
 		}
+
+		[Test]
+		public void TestAddCommissionedEmployee()
+		{
+			int empId = 3;
+			AddEmployeeTransaction t = new AddCommissiondEmployee(empId, "Jack", "home", 0.1f);
+			t.Execute();
+
+			Employee e = PayrollDatabase.GetEmployee(empId);
+			Assert.AreEqual("Jack", e.Name);
+			
+			Assert.IsTrue(e.Classification is CommissionClassification);
+			Assert.IsTrue(e.Schedule is BiweeklySchedule);
+			Assert.AreEqual(0.1f, (e.Classification as CommissionClassification).Percent, .001);
+		}
 	}
 }
 
