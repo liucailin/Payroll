@@ -41,7 +41,7 @@ namespace Payroll.Test
 
 			Assert.IsTrue(e.Classification is HourlyClassification);
 			Assert.IsTrue(e.Schedule is WeeklySchedule);
-			Assert.AreEqual(9.5f, (e.Classification as HourlyClassification).Hourly, .001);
+			Assert.AreEqual(9.5f, (e.Classification as HourlyClassification).Hours, .001);
 		}
 
 		[Test]
@@ -94,10 +94,33 @@ namespace Payroll.Test
 			Assert.IsNotNull(pc.GetTimeCard(DateTime.Today));
 
 
-			Assert.AreEqual(DateTime.Now, pc.GetTimeCard(DateTime.Today).Date);
+			Assert.AreEqual(9.5f, pc.Hours); 
 
+		}
 
+		[Test]
+		public void TestSalesReceiptTranscation() 
+		{
+			int empid = 5;
 
+			AddEmployeeTransaction t = new AddCommissiondEmployee(empid, "Bill", "Home", 3000, 0.1f);
+			t.Execute();
+
+			SalesReceiptTransaction t1 = new SalesReceiptTransaction(DateTime.Now, 112, empid);
+			t1.Execute();
+
+			Employee e = PayrollDatabase.GetEmployee(empid);
+
+			Assert.IsNotNull(e);
+
+			CommissionClassification cc = e.Classification as CommissionClassification;
+
+			Assert.IsNotNull(cc);
+
+			SalesReceipt s = cc.GetSalesReceipt(DateTime.Now);
+			Assert.IsNotNull(s);
+
+			Assert.AreEqual(112, s.SaleAmount);
 		}
 	}
 }

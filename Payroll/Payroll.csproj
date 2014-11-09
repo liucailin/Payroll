@@ -67,6 +67,8 @@
     <Compile Include="Transaction\DeleteEmployeeTransaction.cs" />
     <Compile Include="Transaction\TimeCardTransaction.cs" />
     <Compile Include="PaymentClassification\TimeCard.cs" />
+    <Compile Include="Transaction\SalesReceiptTransaction.cs" />
+    <Compile Include="Transaction\SalesReceipt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

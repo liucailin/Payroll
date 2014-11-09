@@ -1,21 +1,25 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\Test\PayrollTest.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\PaymentClassification\HourlyClassification.cs">
     <Files>
-      <File FileName="Payroll\Test\PayrollTest.cs" Line="38" Column="4" />
-      <File FileName="f:\Agline\Payroll\Payroll\Transaction\AddHourlyEmployee.cs" Line="16" Column="3" />
-      <File FileName="Payroll\Transaction\AddCommissiondEmployee.cs" Line="22" Column="25" />
+      <File FileName="Payroll\Test\PayrollTest.cs" Line="94" Column="32" />
+      <File FileName="f:\Agline\Payroll\Payroll\Transaction\AddHourlyEmployee.cs" Line="18" Column="3" />
+      <File FileName="Payroll\Transaction\AddCommissiondEmployee.cs" Line="22" Column="1" />
+      <File FileName="Payroll\Transaction\TimeCardTransaction.cs" Line="34" Column="16" />
+      <File FileName="Payroll\Transaction\AddEmployeeTransaction.cs" Line="35" Column="27" />
+      <File FileName="Payroll\PaymentClassification\HourlyClassification.cs" Line="35" Column="34" />
+      <File FileName="Payroll\PaymentClassification\TimeCard.cs" Line="35" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Payroll" expanded="True">
-            <Node name="PaymentClassification" expanded="True" />
+            <Node name="PaymentClassification" expanded="True">
+              <Node name="HourlyClassification.cs" selected="True" />
+            </Node>
             <Node name="PaymentMethod" expanded="True" />
             <Node name="PaymentSchedule" expanded="True" />
-            <Node name="Test" expanded="True">
-              <Node name="PayrollTest.cs" selected="True" />
-            </Node>
+            <Node name="Test" expanded="True" />
             <Node name="Transaction" expanded="True" />
           </Node>
         </State>
@@ -32,7 +36,7 @@
             <Node name="Payroll" expanded="True">
               <Node name="Test" expanded="True">
                 <Node name="PayrollTest" expanded="True">
-                  <Node name="TestAddCommissionedEmployee" selected="True" />
+                  <Node name="TestTimeCard" selected="True" />
                 </Node>
               </Node>
             </Node>
