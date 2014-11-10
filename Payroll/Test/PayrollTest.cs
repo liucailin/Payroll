@@ -168,6 +168,26 @@ namespace Payroll.Test
 
 
         }
+
+        [Test]
+        public void ChangeAddressTransaction()
+        {
+            int empid = 7;
+            AddEmployeeTransaction ae = new AddHourlyEmployee(empid, "ho", "home", 100, 4);
+            ae.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empid);
+            Assert.IsNotNull((e));
+
+            ChangeAddressTransaction ct = new ChangeAddressTransaction(empid, "home1");
+            ct.Execute();
+
+            Employee e1 = PayrollDatabase.GetEmployee(empid);
+            Assert.IsNotNull((e1));
+
+            Assert.AreEqual("home1", e1.Address);
+
+
+        }
 	}
 }
 
