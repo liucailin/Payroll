@@ -185,9 +185,31 @@ namespace Payroll.Test
             Assert.IsNotNull((e1));
 
             Assert.AreEqual("home1", e1.Address);
-
-
         }
-	}
+
+        [Test]
+        public void TestChangeHourlyClassificaiton()
+        {
+            int empid = 5;
+
+            AddEmployeeTransaction t = new AddCommissiondEmployee(empid, "Bill", "Home", 3000, 0.1f);
+            t.Execute();
+
+         
+            Employee e = PayrollDatabase.GetEmployee(empid);
+
+            Assert.IsNotNull(e);
+
+            ChangeHourlyClassification ct = new ChangeHourlyClassification(empid, 5);
+            ct.Execute();
+
+            Assert.IsTrue(e.Classification is HourlyClassification);
+            Assert.IsTrue(e.Schedule is WeeklySchedule);
+
+         
+        }
+
+       
+    }
 }
 
