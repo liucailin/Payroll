@@ -147,6 +147,25 @@ namespace Payroll.Test
             ServiceCharge sc = ua.GetServiceCharge(DateTime.Now);
             Assert.AreEqual(111, sc.ChargeAmount);
 
+        }
+
+        [Test]
+        public void ChangeNameTransaction()
+        {
+            int empid = 7;
+            AddEmployeeTransaction ae = new AddHourlyEmployee(empid, "ho", "home", 100, 4);
+            ae.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empid);
+            Assert.IsNotNull((e));
+
+            ChangeNameTransaction ct = new ChangeNameTransaction(empid, "dada");
+            ct.Execute();
+
+            Employee e1 = PayrollDatabase.GetEmployee(empid);
+            Assert.IsNotNull((e1));
+
+            Assert.AreEqual("dada", e1.Name);
+
 
         }
 	}
