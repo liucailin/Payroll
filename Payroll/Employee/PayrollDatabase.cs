@@ -14,6 +14,7 @@ namespace Payroll
 	class PayrollDatabase
 	{
 		private static Hashtable employees = new Hashtable();
+        private static Hashtable unionMembers = new Hashtable();
 
 		public static void AddEmployee(int id, Employee employee)
 		{
@@ -32,6 +33,20 @@ namespace Payroll
 				employees.Remove(id);
 			}
 		}
+
+        public static void AddUnionMember(int id, Employee employee)
+        {
+            unionMembers.Add(id, employee);
+        }
+
+        public static Employee GetUnionMember(int id)
+        {
+            if (unionMembers.ContainsKey(id))
+            {
+                return unionMembers[id] as Employee;
+            }
+            return null;
+        }
 	}
 }
 

@@ -19,6 +19,12 @@ namespace Payroll
 			Address = address;
 		}
 
+        public UnionAffiliation Affiliation
+        {
+            get;
+            set;
+        }
+
 		public PaymentClassification Classification {
 			get;
 			set;

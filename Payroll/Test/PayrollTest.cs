@@ -122,6 +122,33 @@ namespace Payroll.Test
 
 			Assert.AreEqual(112, s.SaleAmount);
 		}
+
+        [Test]
+        public void AddServiceCharge()
+        {
+            int empid = 6;
+
+            AddEmployeeTransaction t = new AddHourlyEmployee(empid, "Lily", "Home", 200, 9);
+            t.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee((empid));
+
+            Assert.IsNotNull(e);
+
+            UnionAffiliation ua = new UnionAffiliation();
+            e.Affiliation = ua;
+
+            int unionMemberid = 444;
+            PayrollDatabase.AddUnionMember(unionMemberid, e);
+
+            SeriveChargeTransaction sct = new SeriveChargeTransaction(DateTime.Now, 111, unionMemberid);
+            sct.Execute();
+
+            ServiceCharge sc = ua.GetServiceCharge(DateTime.Now);
+            Assert.AreEqual(111, sc.ChargeAmount);
+
+
+        }
 	}
 }
 
