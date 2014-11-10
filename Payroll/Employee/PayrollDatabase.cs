@@ -47,6 +47,14 @@ namespace Payroll
             }
             return null;
         }
+
+        public static void RemoveUnionMember(int memberId)
+        {
+            if (unionMembers.ContainsKey(memberId))
+            {
+                unionMembers.Remove(memberId);
+            }
+        }
 	}
 }
 

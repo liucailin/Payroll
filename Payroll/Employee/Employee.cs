@@ -19,7 +19,7 @@ namespace Payroll
 			Address = address;
 		}
 
-        public UnionAffiliation Affiliation
+        public Affiliation Affiliation
         {
             get;
             set;

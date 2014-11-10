@@ -209,6 +209,24 @@ namespace Payroll.Test
          
         }
 
+        [Test]
+        public void TestChangeUnionMember()
+        {
+            int empId = 8; AddHourlyEmployee t =
+                new AddHourlyEmployee(empId, "Bill", "Home", 15.25, 3 ); t.Execute();
+            int memberId = 7743;
+            ChangeMemberTransaction cmt =
+                new ChangeMemberTransaction(empId, memberId, 99.42f); cmt.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empId); Assert.IsNotNull(e);
+            Affiliation affiliation = e.Affiliation; 
+            Assert.IsNotNull(affiliation); 
+            Assert.IsTrue(affiliation is UnionAffiliation); 
+            UnionAffiliation uf = affiliation as UnionAffiliation; 
+            Assert.AreEqual(99.42, uf.Dues, .001);
+            Employee member =PayrollDatabase.GetUnionMember(memberId); Assert.IsNotNull(member);
+            Assert.AreEqual(e, member);
+        }
+
        
     }
 }

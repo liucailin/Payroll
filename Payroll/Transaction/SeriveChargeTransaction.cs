@@ -21,7 +21,7 @@ namespace Payroll
 
             if (e != null)
             {
-                UnionAffiliation ua = e.Affiliation;
+                UnionAffiliation ua = e.Affiliation as UnionAffiliation;
                 ua.AddServiceCharge(new ServiceCharge(chargeDate, chargeAmount));
             }
             else
