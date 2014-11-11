@@ -13,9 +13,9 @@ namespace Payroll
 	class TimeCard
 	{
 		private DateTime date;
-		private float hours;
+		private double hours;
 
-		public TimeCard (DateTime date, float hours)
+		public TimeCard (DateTime date, double hours)
 		{
 			this.date = date;
 			this.hours = hours;
@@ -28,7 +28,7 @@ namespace Payroll
 			}
 		}
 
-		public float Hours {
+		public double Hours {
 			get {
 				return this.hours;
 			}

@@ -7,13 +7,13 @@ namespace Payroll
     {
         private Hashtable charges = new Hashtable();
         private int memberId;
-        private float dues;
+        private double dues;
 
         public UnionAffiliation()
         {
         }
 
-        public UnionAffiliation(int memberId, float dues)
+        public UnionAffiliation(int memberId, double dues)
         {
             this.memberId = memberId;
             this.dues = dues;
@@ -29,7 +29,7 @@ namespace Payroll
             charges.Add(charge.ChargeDate.Day, charge);
         }
 
-        public float Dues
+        public double Dues
         {
             get
             {

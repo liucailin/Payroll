@@ -41,7 +41,7 @@ namespace Payroll.Test
 
 			Assert.IsTrue(e.Classification is HourlyClassification);
 			Assert.IsTrue(e.Schedule is WeeklySchedule);
-			Assert.AreEqual(9.5f, (e.Classification as HourlyClassification).Hours, .001);
+			Assert.AreEqual(9.5f, (e.Classification as HourlyClassification).HourlyRate, .001);
 		}
 
 		[Test]
@@ -94,7 +94,7 @@ namespace Payroll.Test
 			Assert.IsNotNull(pc.GetTimeCard(DateTime.Today));
 
 
-			Assert.AreEqual(9.5f, pc.Hours); 
+			Assert.AreEqual(9.5f, pc.HourlyRate); 
 
 		}
 
@@ -248,6 +248,21 @@ namespace Payroll.Test
             Assert.AreEqual(1000.00, pc.NetPay, .001);
             Assert.AreEqual(new DateTime(2014, 11, 30), pc.PayDate);
         }
+
+		[Test]
+		public void payingSingleHourlyEmployeeNoTimeCard()
+		{
+			int empid = 2;
+			AddHourlyEmployee t = new AddHourlyEmployee(empid, "Bill", "Home", 15.25, 6);
+			t.Execute();
+
+			DateTime payDate = new DateTime(2014, 11, 7);
+			PaydayTransaction pt = new PaydayTransaction(payDate);
+			pt.Execute();
+
+			Paycheck pc = pt.GetPaycheck(empid);
+			Assert.IsNotNull(pc);
+		}
 
        
     }

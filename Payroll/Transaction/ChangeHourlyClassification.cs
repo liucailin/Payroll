@@ -4,9 +4,9 @@ namespace Payroll
 {
     class ChangeHourlyClassification : ChangeClassificationTransaction
     {
-        private float hour;
+        private double hour;
 
-        public ChangeHourlyClassification(int empid, float hour) : base (empid)
+        public ChangeHourlyClassification(int empid, double hour) : base (empid)
         {
             this.hour = hour;
         }

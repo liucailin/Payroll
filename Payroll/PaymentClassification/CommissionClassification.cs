@@ -6,7 +6,7 @@ namespace Payroll
 	{
 		private Hashtable salesReceipts = new Hashtable();
 
-		public CommissionClassification (float percent)
+		public CommissionClassification (double percent)
 		{
 			Percent = percent;
 		}
@@ -28,7 +28,7 @@ namespace Payroll
 			return null;
 		}
 
-		public float Percent { get; set; }
+		public double Percent { get; set; }
 
         public override double CalculatePay(Paycheck paycheck)
         {

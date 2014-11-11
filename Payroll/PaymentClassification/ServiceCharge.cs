@@ -6,9 +6,9 @@ namespace Payroll
 	public class ServiceCharge
 	{
         private DateTime chargeDate;
-        private float chargeAmount;
+        private double chargeAmount;
 
-        public ServiceCharge(DateTime chargeDate, float chargeAmount)
+        public ServiceCharge(DateTime chargeDate, double chargeAmount)
         {
             this.chargeDate = chargeDate;
             this.chargeAmount = chargeAmount;
@@ -22,7 +22,7 @@ namespace Payroll
             }
         }
 
-        public float ChargeAmount
+        public double ChargeAmount
         {
             get
             {

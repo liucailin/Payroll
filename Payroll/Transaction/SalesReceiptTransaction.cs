@@ -13,10 +13,10 @@ namespace Payroll
 	class SalesReceiptTransaction : Transaction
 	{
 		private DateTime saleDate;
-		private float saleAmount;
+		private double saleAmount;
 		private int empid;
 
-		public SalesReceiptTransaction (DateTime saleDate, float saleAmount, int empid)
+		public SalesReceiptTransaction (DateTime saleDate, double saleAmount, int empid)
 		{
 			this.saleDate = saleDate;
 			this.saleAmount = saleAmount;

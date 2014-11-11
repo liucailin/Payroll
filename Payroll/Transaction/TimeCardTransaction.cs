@@ -13,10 +13,10 @@ namespace Payroll
 	class TimeCardTransaction : Transaction
 	{
 		private DateTime date;
-		private float hours;
+		private double hours;
 		private int empid;
 
-		public TimeCardTransaction (DateTime date, float hours, int empid)
+		public TimeCardTransaction (DateTime date, double hours, int empid)
 		{
 			this.date = date;
 			this.hours = hours;

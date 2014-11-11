@@ -5,8 +5,8 @@ namespace Payroll
     class ChangeMemberTransaction : ChangeAffiliationTransaction
     {
         private int memberId;
-        private float dues;
-        public ChangeMemberTransaction(int empId, int memberId, float dues) : base (empId)
+        private double dues;
+        public ChangeMemberTransaction(int empId, int memberId, double dues) : base (empId)
         {
             this.memberId = memberId;
             this.dues = dues;

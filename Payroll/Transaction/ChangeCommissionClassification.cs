@@ -4,9 +4,9 @@ namespace Payroll
 {
     class ChangeCommissionClassification : ChangeClassificationTransaction
     {
-        private float percent;
+        private double percent;
 
-        public ChangeCommissionClassification(int empid, float percent) : base (empid)
+        public ChangeCommissionClassification(int empid, double percent) : base (empid)
         {
             this.percent = percent;
         }

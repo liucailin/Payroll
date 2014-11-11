@@ -13,9 +13,9 @@ namespace Payroll
 	class AddHourlyEmployee : AddEmployeeTransaction
 	{
 		private readonly double salary;
-		private readonly float hour;
+		private readonly double hour;
 
-		public AddHourlyEmployee (int id, string name, string address, double salary, float hour) : base (id, name, address)
+		public AddHourlyEmployee (int id, string name, string address, double salary, double hour) : base (id, name, address)
 		{
 			this.salary = salary;
 			this.hour = hour;

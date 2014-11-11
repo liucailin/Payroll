@@ -15,12 +15,12 @@ namespace Payroll
 	{
 		private Hashtable timeCards = new Hashtable();
 
-		public HourlyClassification (float hour)
+		public HourlyClassification (double hourlyRate)
 		{
-			Hours = hour;
+			HourlyRate = hourlyRate;
 		}
 
-		public float Hours
+		public double HourlyRate
 		{
 			get; set;
 		}
@@ -41,8 +41,32 @@ namespace Payroll
 
         public override double CalculatePay(Paycheck paycheck)
         {
-            throw new NotImplementedException();
+			double totalPay = 0;
+            foreach (TimeCard timeCard in timeCards.Values)
+			{
+				if (IsInPayPeriod(timeCard, paycheck.PayDate))
+				{
+					totalPay += CacuatePayForTimeCard(timeCard);
+				}
+			}
+			return totalPay;
         }
+
+		private bool IsInPayPeriod(TimeCard card, DateTime date)
+		{
+			DateTime payPeriodEndDate = date;
+			DateTime payPeriodStartDate = date.AddDays(-5);
+			return card.Date <= payPeriodEndDate && card.Date >= payPeriodStartDate;
+		}
+
+		private double CacuatePayForTimeCard(TimeCard card)
+		{
+			double overTimeHours = Math.Max(0, card.Hours - 8);
+			double normalHours = card.Hours - overTimeHours;
+
+			return HourlyRate * normalHours + HourlyRate * 1.5 * overTimeHours;
+
+		}
 	}
 
 }

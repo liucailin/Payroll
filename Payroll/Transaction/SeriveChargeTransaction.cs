@@ -5,10 +5,10 @@ namespace Payroll
     class SeriveChargeTransaction : Transaction
     {
         private DateTime chargeDate;
-        private float chargeAmount;
+        private double chargeAmount;
         private int chargeMemberId;
 
-        public SeriveChargeTransaction(DateTime chargeDate, float chargeAmount, int chargeMemberId)
+        public SeriveChargeTransaction(DateTime chargeDate, double chargeAmount, int chargeMemberId)
         {
             this.chargeDate = chargeDate;
             this.chargeAmount = chargeAmount;

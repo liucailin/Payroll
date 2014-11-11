@@ -13,9 +13,9 @@ namespace Payroll
 	class SalesReceipt
 	{
 		private DateTime saleDate;
-		private float saleAmount;
+		private double saleAmount;
 
-		public SalesReceipt (DateTime saleDate, float saleAmount)
+		public SalesReceipt (DateTime saleDate, double saleAmount)
 		{
 			this.saleDate = saleDate;
 			this.saleAmount = saleAmount;
@@ -27,7 +27,7 @@ namespace Payroll
 			}
 		}
 
-		public float SaleAmount {
+		public double SaleAmount {
 			get {
 				return saleAmount;
 			}
