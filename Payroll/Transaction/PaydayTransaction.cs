@@ -22,7 +22,8 @@ namespace Payroll
                 Employee e = PayrollDatabase.GetEmployee(empid);
                 if (e.IsPayDate(payDate))
                 {
-                    Paycheck payCheck = new Paycheck(payDate);
+					DateTime startDate = e.GetPayStartDay(payDate);
+                    Paycheck payCheck = new Paycheck(startDate, payDate);
                     payChecks[empid] = payCheck;
                     e.Payday(payCheck);
                 }

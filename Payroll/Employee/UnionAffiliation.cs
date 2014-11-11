@@ -47,8 +47,27 @@ namespace Payroll
 
         public override double CalculateDeductions(Paycheck paycheck)
         {
-            return dues;
+            double totalDues = 0;
+
+			if (DateUtil.IsInPayPeriod(paycheck.PayEndDate, paycheck.PayStartDate, paycheck.PayEndDate))
+			{
+				int fridays = NumberOfFridaysInPayPeriod(paycheck.PayStartDate, paycheck.PayEndDate);
+				totalDues = dues * fridays;
+			}
+
+			return totalDues;
         }
+
+		private int NumberOfFridaysInPayPeriod (DateTime payStartDate, DateTime payEndDate)
+		{
+			int fridays = 0;
+			for (DateTime day = payStartDate; day <= payEndDate; day.AddDays(1))
+			{
+				if (day.DayOfWeek == DayOfWeek.Friday)
+					fridays++;
+			}
+			return fridays;
+		}
     }
 }
 

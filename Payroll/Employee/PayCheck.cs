@@ -7,11 +7,13 @@ namespace Payroll
         private double grossPay;
         private double deductions;
         private double netPay;
-        private DateTime payDate;
+        private DateTime payEndDate;
+        private DateTime payStartDate;
 
-        public Paycheck(DateTime payDate)
+		public Paycheck(DateTime payStartDate, DateTime payEndDate)
         {
-            this.payDate = payDate;
+			this.payStartDate = payStartDate;
+			this.payEndDate = payEndDate;
         }
 
         public double GrossPay
@@ -50,11 +52,19 @@ namespace Payroll
             }
         }
 
-        public DateTime PayDate
+		public DateTime PayStartDate
+		{
+			get
+			{
+				return payStartDate;
+			}
+		}
+
+        public DateTime PayEndDate
         {
             get
             {
-                return payDate;
+                return payEndDate;
             }
         }
 

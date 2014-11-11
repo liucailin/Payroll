@@ -21,6 +21,11 @@ namespace Payroll
         {
             return date.DayOfWeek == DayOfWeek.Friday;
         }
+
+		public override DateTime GetPayStartDay (DateTime payDate)
+		{
+			return payDate.AddDays(-5);
+		}
 	}
 
 }

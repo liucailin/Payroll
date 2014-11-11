@@ -10,29 +10,12 @@
 using System;
 namespace Payroll
 {
-	class SalariedClassification : PaymentClassification
+	class DateUtil
 	{
-		public SalariedClassification (double salary)
+		public static bool IsInPayPeriod(DateTime theDate, DateTime startDate, DateTime endDate)
 		{
-			Salary = salary;
+			return (theDate >= startDate) && (theDate <= endDate);
 		}
-
-		public double Salary {
-			get;
-			set;
-		}
-
-        public override double CalculatePay(Paycheck paycheck)
-        {
-			if (DateUtil.IsInPayPeriod(paycheck.PayEndDate, paycheck.PayStartDate, paycheck.PayEndDate))
-			{
-				return Salary;
-			}
-			return 0;
-            
-        }
-
 	}
-
 }
 

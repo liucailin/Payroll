@@ -246,7 +246,7 @@ namespace Payroll.Test
             Assert.AreEqual(1000.00, pc.GrossPay, .001);
             Assert.AreEqual(0, pc.Deductions, .001);
             Assert.AreEqual(1000.00, pc.NetPay, .001);
-            Assert.AreEqual(new DateTime(2014, 11, 30), pc.PayDate);
+            Assert.AreEqual(new DateTime(2014, 11, 30), pc.PayEndDate);
         }
 
 		[Test]
@@ -271,7 +271,7 @@ namespace Payroll.Test
 			Assert.AreEqual(pay, pc.NetPay, 0.001);
 			Assert.AreEqual(pay, pc.GrossPay, 0.001);
 			Assert.AreEqual(0, pc.Deductions, 0.001);
-			Assert.AreEqual(payDate, pc.PayDate);
+			Assert.AreEqual(payDate, pc.PayEndDate);
 		}
 
 		[Test]
@@ -327,7 +327,7 @@ namespace Payroll.Test
 
 			Assert.AreEqual(2000 + 100 * 0.1, pc.NetPay);
 
-		}
+		} 
 
        
     }

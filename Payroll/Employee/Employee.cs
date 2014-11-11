@@ -73,6 +73,11 @@ namespace Payroll
             paycheck.NetPay = netPay; 
             Method.Pay(paycheck);
         }
+
+		public DateTime GetPayStartDay (DateTime payDate)
+		{
+			return Schedule.GetPayStartDay(payDate);
+		}
 	}
 }
 

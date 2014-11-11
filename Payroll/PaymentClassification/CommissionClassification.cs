@@ -37,18 +37,13 @@ namespace Payroll
 			double totalPay = Salary;
             foreach (SalesReceipt sr in salesReceipts.Values)
 			{
-				if (IsInPayPeriod(sr, paycheck.PayDate))
+				if (DateUtil.IsInPayPeriod(sr.SaleDate, paycheck.PayStartDate, paycheck.PayEndDate))
 				{
 					totalPay += CalculatePayInSaleReceipt(sr);
 				}
 			}
 			return totalPay;
         }
-
-		private bool IsInPayPeriod(SalesReceipt sr, DateTime payDate)
-		{
-			return sr.SaleDate.Month == payDate.Month;
-		}
 
 		private double CalculatePayInSaleReceipt(SalesReceipt sr)
 		{

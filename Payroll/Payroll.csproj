@@ -93,6 +93,7 @@
     <Compile Include="PaymentMethod\MailMethod.cs" />
     <Compile Include="Employee\Affiliation.cs" />
     <Compile Include="Test\PayrollTestAddEmployee.cs" />
+    <Compile Include="Employee\DateUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

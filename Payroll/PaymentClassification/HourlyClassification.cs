@@ -44,7 +44,7 @@ namespace Payroll
 			double totalPay = 0;
             foreach (TimeCard timeCard in timeCards.Values)
 			{
-				if (IsInPayPeriod(timeCard, paycheck.PayDate))
+				if (DateUtil.IsInPayPeriod(timeCard.Date, paycheck.PayStartDate, paycheck.PayEndDate))
 				{
 					totalPay += CacuatePayForTimeCard(timeCard);
 				}
@@ -52,12 +52,6 @@ namespace Payroll
 			return totalPay;
         }
 
-		private bool IsInPayPeriod(TimeCard card, DateTime date)
-		{
-			DateTime payPeriodEndDate = date;
-			DateTime payPeriodStartDate = date.AddDays(-5);
-			return card.Date <= payPeriodEndDate && card.Date >= payPeriodStartDate;
-		}
 
 		private double CacuatePayForTimeCard(TimeCard card)
 		{

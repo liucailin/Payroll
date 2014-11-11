@@ -30,6 +30,11 @@ namespace Payroll
 			int weekNum = cal.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
 			return date.DayOfWeek == DayOfWeek.Friday && (weekNum % 2 == 1);
         }
+
+		public override DateTime GetPayStartDay (DateTime payDate)
+		{
+			return payDate.AddDays(-14);
+		}
 	}
 }
 

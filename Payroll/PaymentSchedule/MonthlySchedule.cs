@@ -24,6 +24,11 @@ namespace Payroll
 
             return m1 != m2;
         }
+
+		public override DateTime GetPayStartDay (DateTime payDate)
+		{
+			return payDate.AddMonths(-1).Date;
+		}
 	}
 
 }
