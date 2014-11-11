@@ -15,22 +15,37 @@ namespace Payroll
 	{
 		private static Hashtable employees = new Hashtable();
         private static Hashtable unionMembers = new Hashtable();
+        private static ArrayList employeeIds = new ArrayList();
 
 		public static void AddEmployee(int id, Employee employee)
 		{
-			employees.Add(id, employee);
+            if (!employees.ContainsKey(id))
+            {
+                employees.Add(id, employee);
+                employeeIds.Add(id);
+            }
 		}
 
 		public static Employee GetEmployee(int id)
 		{
-			return employees[id] as Employee;
+            if (employees.ContainsKey(id))
+            {
+                return employees[id] as Employee;
+            }
+            return null;
 		}
+
+        public static ArrayList GetAllEmployeeIds()
+        {
+            return employeeIds;
+        }
 
 		public static void DeleteEmployee(int id)
 		{
 			if (employees.ContainsKey(id))
 			{
 				employees.Remove(id);
+                employeeIds.Remove(id);
 			}
 		}
 

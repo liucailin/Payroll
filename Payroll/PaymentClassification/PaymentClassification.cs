@@ -12,8 +12,9 @@ using NUnit.Core;
 
 namespace Payroll
 {
-	class PaymentClassification
+	abstract class PaymentClassification
 	{
+        public abstract double CalculatePay(Paycheck paycheck);
 	}
 
 

@@ -29,6 +29,13 @@ namespace Payroll
 		}
 
 		public float Percent { get; set; }
+
+        public override double CalculatePay(Paycheck paycheck)
+        {
+            throw new NotImplementedException();
+        }
+
+
 	}
 
 

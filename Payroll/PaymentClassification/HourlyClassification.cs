@@ -38,6 +38,11 @@ namespace Payroll
 			}
 			return null;
 		}
+
+        public override double CalculatePay(Paycheck paycheck)
+        {
+            throw new NotImplementedException();
+        }
 	}
 
 }

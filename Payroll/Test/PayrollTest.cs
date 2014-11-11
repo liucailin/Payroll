@@ -227,6 +227,28 @@ namespace Payroll.Test
             Assert.AreEqual(e, member);
         }
 
+        [Test]
+        public void PaySingleSalariedEmployee()
+        {
+            int empId = 1;
+            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "home", 1000.00);
+            t.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.AreEqual("Bob", e.Name);
+
+            PaydayTransaction pt = new PaydayTransaction(new DateTime(2014, 11, 30));
+            pt.Execute();
+
+            Paycheck pc = pt.GetPaycheck(empId);
+
+            Assert.IsNotNull(pc);
+            Assert.AreEqual(1000.00, pc.GrossPay, .001);
+            Assert.AreEqual(0, pc.Deductions, .001);
+            Assert.AreEqual(1000.00, pc.NetPay, .001);
+            Assert.AreEqual(new DateTime(2014, 11, 30), pc.PayDate);
+        }
+
        
     }
 }

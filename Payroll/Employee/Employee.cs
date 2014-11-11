@@ -12,6 +12,8 @@ namespace Payroll
 {
 	class Employee
 	{
+        private Affiliation affiliation;
+
 		public Employee (int empid, string name, string address)
 		{
 			EmpId = empid;
@@ -21,8 +23,18 @@ namespace Payroll
 
         public Affiliation Affiliation
         {
-            get;
-            set;
+            get
+            {
+                if (affiliation == null)
+                {
+                    affiliation = new NoAffiliation();
+                }
+                return affiliation;
+            }
+            set
+            {
+                affiliation = value;
+            }
         }
 
 		public PaymentClassification Classification {
@@ -45,6 +57,22 @@ namespace Payroll
 		public string Name { get; set; }
 
 		public string Address { get; set; }
+
+        public bool IsPayDate(DateTime payDate)
+        {
+            return Schedule.IsPayDate(payDate);
+        }
+
+        public void Payday(Paycheck paycheck)
+        {
+            double grossPay = Classification.CalculatePay(paycheck); 
+            double deductions = Affiliation.CalculateDeductions(paycheck); 
+            double netPay = grossPay - deductions; 
+            paycheck.GrossPay = grossPay; 
+            paycheck.Deductions = deductions; 
+            paycheck.NetPay = netPay; 
+            Method.Pay(paycheck);
+        }
 	}
 }
 

@@ -12,8 +12,12 @@ using NUnit.Core;
 
 namespace Payroll
 {
-	public class PaymentMethod
+	abstract class PaymentMethod
 	{
+        public void Pay(Paycheck paycheck)
+        {
+            Console.WriteLine("pay method");
+        }
 	}
 
 

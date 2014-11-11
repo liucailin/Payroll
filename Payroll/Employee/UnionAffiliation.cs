@@ -44,6 +44,11 @@ namespace Payroll
                 return memberId;
             }
         }
+
+        public override double CalculateDeductions(Paycheck paycheck)
+        {
+            return dues;
+        }
     }
 }
 

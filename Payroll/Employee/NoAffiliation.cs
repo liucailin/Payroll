@@ -7,6 +7,11 @@ namespace Payroll
         public NoAffiliation()
         {
         }
+
+        public override double CalculateDeductions(Paycheck paycheck)
+        {
+            return 0;
+        }
     }
 }
 

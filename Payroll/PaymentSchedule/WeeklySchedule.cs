@@ -12,6 +12,15 @@ namespace Payroll
 {
 	class WeeklySchedule : PaymentSchedule
 	{
+        public override bool IsPayDate(DateTime payDate)
+        {
+            return IsLastDayOfWeek(payDate);
+        }
+
+        private bool IsLastDayOfWeek(DateTime date)
+        {
+            return date.DayOfWeek == DayOfWeek.Friday;
+        }
 	}
 
 }

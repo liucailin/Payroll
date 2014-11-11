@@ -12,8 +12,9 @@ using NUnit.Core;
 
 namespace Payroll
 {
-	class PaymentSchedule
+	abstract class PaymentSchedule
 	{
+        public abstract bool IsPayDate(DateTime payDate);
 	}
 
 

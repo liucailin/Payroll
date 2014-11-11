@@ -15,6 +15,16 @@ namespace Payroll
 		public BiweeklySchedule ()
 		{
 		}
+
+        public override bool IsPayDate(DateTime payDate)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsWeeklyDate(DateTime date)
+        {
+            return false;
+        }
 	}
 }
 

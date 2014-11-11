@@ -21,6 +21,12 @@ namespace Payroll
 			get;
 			set;
 		}
+
+        public override double CalculatePay(Paycheck paycheck)
+        {
+            return Salary;
+        }
+
 	}
 
 }
