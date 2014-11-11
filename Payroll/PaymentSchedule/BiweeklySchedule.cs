@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using System.Globalization;
+
+
 namespace Payroll
 {
 	class BiweeklySchedule : PaymentSchedule
@@ -18,12 +21,14 @@ namespace Payroll
 
         public override bool IsPayDate(DateTime payDate)
         {
-            throw new NotImplementedException();
+        	return IsBiWeeklyDate(payDate);
         }
 
-        private bool IsWeeklyDate(DateTime date)
+        private bool IsBiWeeklyDate(DateTime date)
         {
-            return false;
+			GregorianCalendar cal = new System.Globalization.GregorianCalendar();
+			int weekNum = cal.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
+			return date.DayOfWeek == DayOfWeek.Friday && (weekNum % 2 == 1);
         }
 	}
 }

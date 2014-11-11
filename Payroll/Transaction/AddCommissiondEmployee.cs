@@ -17,7 +17,7 @@ namespace Payroll.Test
 
 		protected override PaymentClassification MakeClassification ()
 		{
-			return new CommissionClassification(percent);
+			return new CommissionClassification(salary, percent);
 		}
 
 		protected override PaymentSchedule MakeSchedule ()

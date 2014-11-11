@@ -293,6 +293,42 @@ namespace Payroll.Test
 			ValidateHourlyPayCheck(pt, empid, payDate, 6 * 6);
 		}
 
+		[Test]
+		public void PaySingleHourlyEmployeeOverTimeOneCard()
+		{
+			PayrollTestAddEmployee.AddHourlyEmployee(1, "Lily", "home", 9);
+			DateTime payDate = new DateTime(2014, 11, 7);
+
+			TimeCardTransaction tc = new TimeCardTransaction(payDate, 9.5, 1);
+			tc.Execute();
+
+			PaydayTransaction pt = new PaydayTransaction(payDate);
+			pt.Execute();
+
+			ValidateHourlyPayCheck(pt, 1, payDate, 8 * 9 + 1.5 * 9 * 1.5);
+		}
+
+		[Test]
+		public void PayCommissionEmployee()
+		{
+			int empid = 1;
+			PayrollTestAddEmployee.AddCommissiondEmployee(empid, "c", "h", 2000, 0.1);
+
+			DateTime payDate = new DateTime(2014, 11, 7);
+			DateTime saleDate = new DateTime(2014, 11, 2);
+			SalesReceiptTransaction sr = new SalesReceiptTransaction(saleDate, 100, empid);
+			sr.Execute();
+
+			PaydayTransaction pt = new PaydayTransaction(payDate);
+			pt.Execute();
+
+			Paycheck pc = pt.GetPaycheck(empid);
+			Assert.IsNotNull(pc);
+
+			Assert.AreEqual(2000 + 100 * 0.1, pc.NetPay);
+
+		}
+
        
     }
 }

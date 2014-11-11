@@ -92,6 +92,7 @@
     <Compile Include="PaymentMethod\DirectMethod.cs" />
     <Compile Include="PaymentMethod\MailMethod.cs" />
     <Compile Include="Employee\Affiliation.cs" />
+    <Compile Include="Test\PayrollTestAddEmployee.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

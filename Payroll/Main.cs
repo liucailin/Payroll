@@ -7,6 +7,8 @@ namespace Payroll
 		public static void Main (string[] args)
 		{
 			Console.WriteLine ("Hello World!");
+
+			DateTime d = DateTime.Now;
 		}
 	}
 }
