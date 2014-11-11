@@ -12,7 +12,7 @@ namespace Payroll
 {
 	class Employee
 	{
-        private Affiliation affiliation;
+        private Affiliation affiliation = new NoAffiliation();
 
 		public Employee (int empid, string name, string address)
 		{
@@ -24,11 +24,7 @@ namespace Payroll
         public Affiliation Affiliation
         {
             get
-            {
-                if (affiliation == null)
-                {
-                    affiliation = new NoAffiliation();
-                }
+            {               
                 return affiliation;
             }
             set
