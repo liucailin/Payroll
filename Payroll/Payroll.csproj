@@ -69,6 +69,29 @@
     <Compile Include="PaymentClassification\TimeCard.cs" />
     <Compile Include="Transaction\SalesReceiptTransaction.cs" />
     <Compile Include="Transaction\SalesReceipt.cs" />
+    <Compile Include="Transaction\ChangeAddressTransaction.cs" />
+    <Compile Include="Transaction\ChangeAffiliationTransaction.cs" />
+    <Compile Include="Transaction\ChangeClassificationTransaction.cs" />
+    <Compile Include="Transaction\ChangeCommissionClassification.cs" />
+    <Compile Include="Transaction\ChangeDirectTransaction.cs" />
+    <Compile Include="Transaction\ChangeEmployeeTransaction.cs" />
+    <Compile Include="Transaction\ChangeHoldTransaction.cs" />
+    <Compile Include="Transaction\ChangeHourlyClassification.cs" />
+    <Compile Include="Transaction\ChangeMailTransaction.cs" />
+    <Compile Include="Transaction\ChangeMemberTransaction.cs" />
+    <Compile Include="Transaction\ChangeMethodTransaction.cs" />
+    <Compile Include="Transaction\ChangeNameTransaction.cs" />
+    <Compile Include="Transaction\ChangeSalariedClassification.cs" />
+    <Compile Include="Transaction\ChangNoaffiliationTransaction.cs" />
+    <Compile Include="Transaction\PaydayTransaction.cs" />
+    <Compile Include="Transaction\SeriveChargeTransaction.cs" />
+    <Compile Include="Employee\NoAffiliation.cs" />
+    <Compile Include="Employee\PayCheck.cs" />
+    <Compile Include="Employee\UnionAffiliation.cs" />
+    <Compile Include="PaymentClassification\ServiceCharge.cs" />
+    <Compile Include="PaymentMethod\DirectMethod.cs" />
+    <Compile Include="PaymentMethod\MailMethod.cs" />
+    <Compile Include="Employee\Affiliation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
