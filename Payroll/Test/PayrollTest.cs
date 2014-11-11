@@ -33,7 +33,7 @@ namespace Payroll.Test
 		public void TestAddHourlyEmployee ()
 		{
 			int empId = 2;
-			AddEmployeeTransaction t = new AddHourlyEmployee(empId, "Lucy", "home", 100, 9.5f);
+			AddEmployeeTransaction t = new AddHourlyEmployee(empId, "Lucy", "home", 9.5f);
 			t.Execute();
 
 			Employee e = PayrollDatabase.GetEmployee(empId);
@@ -80,7 +80,7 @@ namespace Payroll.Test
 		{
 			int empId = 4;
 
-			AddEmployeeTransaction t = new AddHourlyEmployee(empId, "Lucy", "home", 100, 9.5f);
+			AddEmployeeTransaction t = new AddHourlyEmployee(empId, "Lucy", "home", 9.5f);
 			t.Execute();
 
 			TimeCardTransaction t1 = new TimeCardTransaction(DateTime.Today, 9, empId);
@@ -128,7 +128,7 @@ namespace Payroll.Test
         {
             int empid = 6;
 
-            AddEmployeeTransaction t = new AddHourlyEmployee(empid, "Lily", "Home", 200, 9);
+            AddEmployeeTransaction t = new AddHourlyEmployee(empid, "Lily", "Home", 9);
             t.Execute();
 
             Employee e = PayrollDatabase.GetEmployee((empid));
@@ -153,7 +153,7 @@ namespace Payroll.Test
         public void ChangeNameTransaction()
         {
             int empid = 7;
-            AddEmployeeTransaction ae = new AddHourlyEmployee(empid, "ho", "home", 100, 4);
+            AddEmployeeTransaction ae = new AddHourlyEmployee(empid, "ho", "home", 4);
             ae.Execute();
             Employee e = PayrollDatabase.GetEmployee(empid);
             Assert.IsNotNull((e));
@@ -173,7 +173,7 @@ namespace Payroll.Test
         public void ChangeAddressTransaction()
         {
             int empid = 7;
-            AddEmployeeTransaction ae = new AddHourlyEmployee(empid, "ho", "home", 100, 4);
+            AddEmployeeTransaction ae = new AddHourlyEmployee(empid, "ho", "home", 4);
             ae.Execute();
             Employee e = PayrollDatabase.GetEmployee(empid);
             Assert.IsNotNull((e));
@@ -213,7 +213,7 @@ namespace Payroll.Test
         public void TestChangeUnionMember()
         {
             int empId = 8; AddHourlyEmployee t =
-                new AddHourlyEmployee(empId, "Bill", "Home", 15.25, 3 ); t.Execute();
+                new AddHourlyEmployee(empId, "Bill", "Home", 3 ); t.Execute();
             int memberId = 7743;
             ChangeMemberTransaction cmt =
                 new ChangeMemberTransaction(empId, memberId, 99.42f); cmt.Execute();
@@ -253,15 +253,44 @@ namespace Payroll.Test
 		public void payingSingleHourlyEmployeeNoTimeCard()
 		{
 			int empid = 2;
-			AddHourlyEmployee t = new AddHourlyEmployee(empid, "Bill", "Home", 15.25, 6);
+			AddHourlyEmployee t = new AddHourlyEmployee(empid, "Bill", "Home", 15.25);
 			t.Execute();
 
 			DateTime payDate = new DateTime(2014, 11, 7);
 			PaydayTransaction pt = new PaydayTransaction(payDate);
 			pt.Execute();
 
+
+		}
+
+		private void ValidateHourlyPayCheck(PaydayTransaction pt, int empid, DateTime payDate, double pay)
+		{
 			Paycheck pc = pt.GetPaycheck(empid);
 			Assert.IsNotNull(pc);
+			
+			Assert.AreEqual(pay, pc.NetPay, 0.001);
+			Assert.AreEqual(pay, pc.GrossPay, 0.001);
+			Assert.AreEqual(0, pc.Deductions, 0.001);
+			Assert.AreEqual(payDate, pc.PayDate);
+		}
+
+		[Test]
+		public void PaySingleHourlyEmployeeOneTimeCard()
+		{
+			int empid = 2;
+			AddHourlyEmployee t = new AddHourlyEmployee(empid, "Bill", "Home",  6);
+			t.Execute();
+
+			DateTime payDate = new DateTime(2014, 11, 7);
+
+			TimeCardTransaction tc = new TimeCardTransaction(payDate, 6, empid);
+			tc.Execute();
+
+
+			PaydayTransaction pt = new PaydayTransaction(payDate);
+			pt.Execute();
+
+			ValidateHourlyPayCheck(pt, empid, payDate, 6 * 6);
 		}
 
        
