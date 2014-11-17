@@ -1,43 +1,9 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\Employee\NoAffiliation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll/Test/PayrollTest.cs">
     <Files>
-      <File FileName="Payroll\Test\PayrollTest.cs" Line="161" Column="25" />
-      <File FileName="Payroll\PaymentClassification\HourlyClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\SalesReceiptTransaction.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\TimeCardTransaction.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentClassification\CommissionClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\SalesReceipt.cs" Line="1" Column="1" />
-      <File FileName="f:\Agline\Payroll\Payroll\Employee\PayrollDatabase.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentSchedule\WeeklySchedule.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\ChangeMemberTransaction.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Employee\NoAffiliation.cs" Line="5" Column="33" />
+      <File FileName="Payroll/Test/PayrollTest.cs" Line="153" Column="31" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Payroll" expanded="True">
-            <Node name="Employee" expanded="True">
-              <Node name="NoAffiliation.cs" selected="True" />
-            </Node>
-            <Node name="PaymentClassification" expanded="True" />
-            <Node name="PaymentMethod" expanded="True" />
-            <Node name="PaymentSchedule" expanded="True" />
-            <Node name="Test" expanded="True" />
-            <Node name="Transaction" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

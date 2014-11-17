@@ -44,7 +44,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Test\PayrollTest.cs" />
     <Compile Include="Transaction\AddEmployeeTransaction.cs" />
@@ -94,6 +93,9 @@
     <Compile Include="Employee\Affiliation.cs" />
     <Compile Include="Test\PayrollTestAddEmployee.cs" />
     <Compile Include="Employee\DateUtil.cs" />
+    <Compile Include="PayrollApplication.cs" />
+    <Compile Include="TransactionSource.cs" />
+    <Compile Include="TextParserTransactonSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
