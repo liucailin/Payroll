@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-using NUnit.Core;
 
 namespace Payroll
 {

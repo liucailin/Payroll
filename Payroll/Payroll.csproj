@@ -51,14 +51,8 @@
     <Compile Include="Transaction\AddHourlyEmployee.cs" />
     <Compile Include="PaymentSchedule\MonthlySchedule.cs" />
     <Compile Include="PaymentClassification\HourlyClassification.cs" />
-    <Compile Include="PaymentClassification\PaymentClassification.cs" />
-    <Compile Include="PaymentMethod\PaymentMethod.cs" />
-    <Compile Include="Transaction\Transaction.cs" />
-    <Compile Include="PaymentSchedule\PaymentSchedule.cs" />
     <Compile Include="PaymentClassification\SalariedClassification.cs" />
     <Compile Include="PaymentMethod\HoldMethod.cs" />
-    <Compile Include="Employee\Employee.cs" />
-    <Compile Include="Employee\PayrollDatabase.cs" />
     <Compile Include="PaymentSchedule\WeeklySchedule.cs" />
     <Compile Include="PaymentSchedule\BiweeklySchedule.cs" />
     <Compile Include="Transaction\AddCommissiondEmployee.cs" />
@@ -67,35 +61,43 @@
     <Compile Include="Transaction\TimeCardTransaction.cs" />
     <Compile Include="PaymentClassification\TimeCard.cs" />
     <Compile Include="Transaction\SalesReceiptTransaction.cs" />
-    <Compile Include="Transaction\SalesReceipt.cs" />
     <Compile Include="Transaction\ChangeAddressTransaction.cs" />
-    <Compile Include="Transaction\ChangeAffiliationTransaction.cs" />
-    <Compile Include="Transaction\ChangeClassificationTransaction.cs" />
-    <Compile Include="Transaction\ChangeCommissionClassification.cs" />
-    <Compile Include="Transaction\ChangeDirectTransaction.cs" />
     <Compile Include="Transaction\ChangeEmployeeTransaction.cs" />
-    <Compile Include="Transaction\ChangeHoldTransaction.cs" />
-    <Compile Include="Transaction\ChangeHourlyClassification.cs" />
-    <Compile Include="Transaction\ChangeMailTransaction.cs" />
-    <Compile Include="Transaction\ChangeMemberTransaction.cs" />
-    <Compile Include="Transaction\ChangeMethodTransaction.cs" />
     <Compile Include="Transaction\ChangeNameTransaction.cs" />
-    <Compile Include="Transaction\ChangeSalariedClassification.cs" />
-    <Compile Include="Transaction\ChangNoaffiliationTransaction.cs" />
     <Compile Include="Transaction\PaydayTransaction.cs" />
     <Compile Include="Transaction\SeriveChargeTransaction.cs" />
-    <Compile Include="Employee\NoAffiliation.cs" />
-    <Compile Include="Employee\PayCheck.cs" />
-    <Compile Include="Employee\UnionAffiliation.cs" />
-    <Compile Include="PaymentClassification\ServiceCharge.cs" />
     <Compile Include="PaymentMethod\DirectMethod.cs" />
     <Compile Include="PaymentMethod\MailMethod.cs" />
-    <Compile Include="Employee\Affiliation.cs" />
     <Compile Include="Test\PayrollTestAddEmployee.cs" />
-    <Compile Include="Employee\DateUtil.cs" />
-    <Compile Include="PayrollApplication.cs" />
-    <Compile Include="TransactionSource.cs" />
-    <Compile Include="TextParserTransactonSource.cs" />
+    <Compile Include="PayrollApplication\PayrollApplication.cs" />
+    <Compile Include="PayrollApplication\TransactionSource.cs" />
+    <Compile Include="PayrollDatabase\PayrollDatabase.cs" />
+    <Compile Include="PaymentClassification\ChangeClassificationTransaction.cs" />
+    <Compile Include="PaymentClassification\ChangeCommissionClassification.cs">
+      <DependentUpon>CommissionClassification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentClassification\ChangeSalariedClassification.cs" />
+    <Compile Include="PaymentClassification\ChangeHourlyClassification.cs" />
+    <Compile Include="PaymentClassification\SalesReceipt.cs" />
+    <Compile Include="PaymentMethod\ChangeMethodTransaction.cs" />
+    <Compile Include="PaymentMethod\ChangeDirectTransaction.cs" />
+    <Compile Include="PaymentMethod\ChangeHoldTransaction.cs" />
+    <Compile Include="PaymentMethod\ChangeMailTransaction.cs" />
+    <Compile Include="Affiliations\ChangeAffiliationTransaction.cs" />
+    <Compile Include="Affiliations\NoAffiliation.cs" />
+    <Compile Include="Affiliations\UnionAffiliation.cs" />
+    <Compile Include="Affiliations\ServiceCharge.cs" />
+    <Compile Include="Affiliations\ChangNoaffiliationTransaction.cs" />
+    <Compile Include="Affiliations\ChangeMemberTransaction.cs" />
+    <Compile Include="PayrollDomain\Employee.cs" />
+    <Compile Include="PayrollDomain\PaymentClassification.cs" />
+    <Compile Include="PayrollDomain\Affiliation.cs" />
+    <Compile Include="PayrollDomain\PaymentMethod.cs" />
+    <Compile Include="PayrollDomain\PaymentSchedule.cs" />
+    <Compile Include="PayrollDomain\Transaction.cs" />
+    <Compile Include="TextParser\TextParserTransactonSource.cs" />
+    <Compile Include="PaymentSchedule\PayCheck.cs" />
+    <Compile Include="Util\DateUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -104,6 +106,12 @@
     <Folder Include="PaymentMethod\" />
     <Folder Include="PaymentSchedule\" />
     <Folder Include="PaymentClassification\" />
-    <Folder Include="Employee\" />
+    <Folder Include="PayrollApplication\" />
+    <Folder Include="PayrollDatabase\" />
+    <Folder Include="Affiliations\" />
+    <Folder Include="PayrollDomain\" />
+    <Folder Include="Application\" />
+    <Folder Include="TextParser\" />
+    <Folder Include="Util\" />
   </ItemGroup>
 </Project>
