@@ -10,9 +10,16 @@
 using System;
 namespace Payroll
 {
-	public interface Transaction
+	abstract class Transaction
 	{
-		void Execute();
+		protected readonly PayrollDatabase database;
+
+		public Transaction (PayrollDatabase database)
+		{
+			this.database = database;
+		}
+
+		public abstract void Execute();
 	}
 }
 

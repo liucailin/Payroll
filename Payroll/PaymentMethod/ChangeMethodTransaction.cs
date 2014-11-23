@@ -4,7 +4,7 @@ namespace Payroll
 {
     abstract class ChangeMethodTransaction : ChangeEmployeeTransaction
     {
-        public ChangeMethodTransaction(int empid) : base (empid)
+		public ChangeMethodTransaction(int empid, PayrollDatabase database) : base (empid, database)
         {
         }
 

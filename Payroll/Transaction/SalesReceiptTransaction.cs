@@ -16,16 +16,16 @@ namespace Payroll
 		private double saleAmount;
 		private int empid;
 
-		public SalesReceiptTransaction (DateTime saleDate, double saleAmount, int empid)
+		public SalesReceiptTransaction (DateTime saleDate, double saleAmount, int empid, PayrollDatabase database) : base (database)
 		{
 			this.saleDate = saleDate;
 			this.saleAmount = saleAmount;
 			this.empid = empid;
 		}		
 
-		public void Execute ()
+		public override void Execute ()
 		{
-			Employee e = PayrollDatabase.GetEmployee(empid);
+			Employee e = database.GetEmployee(empid);
 
 			if (e != null)
 			{

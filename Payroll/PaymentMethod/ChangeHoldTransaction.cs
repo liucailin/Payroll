@@ -4,7 +4,7 @@ namespace Payroll
 {
     class ChangeHoldTransaction : ChangeMethodTransaction
     {
-        public ChangeHoldTransaction(int empid) : base (empid)
+		public ChangeHoldTransaction(int empid, PayrollDatabase database) : base (empid, database)
         {
         }
 

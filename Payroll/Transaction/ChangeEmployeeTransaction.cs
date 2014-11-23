@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Payroll
 {
@@ -6,14 +6,14 @@ namespace Payroll
     {
         private int empid;
 
-        public ChangeEmployeeTransaction(int empid)
+        public ChangeEmployeeTransaction(int empid, PayrollDatabase database) : base (database)
         {
             this.empid = empid;
         }
 
-        public void Execute()
+        public override void Execute()
         {
-            Employee e = PayrollDatabase.GetEmployee(empid);
+            Employee e = database.GetEmployee(empid);
             if (e != null)
             {
                 Change(e);

@@ -9,7 +9,8 @@ namespace Payroll.Test
 		private readonly double percent;
 		private readonly double salary;
 
-		public AddCommissiondEmployee (int id, string name, string address, double salary, double percent) : base (id, name, address)
+		public AddCommissiondEmployee (int id, string name, string address, double salary, double percent, PayrollDatabase database) 
+			: base (id, name, address, database)
 		{
 			this.salary = salary;
 			this.percent = percent;

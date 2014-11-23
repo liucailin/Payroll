@@ -4,7 +4,7 @@ namespace Payroll
 {
     class ChangeDirectTransaction : ChangeMethodTransaction
     {
-        public ChangeDirectTransaction(int empid) : base (empid)
+		public ChangeDirectTransaction(int empid, PayrollDatabase database) : base (empid, database)
         {
         }
 

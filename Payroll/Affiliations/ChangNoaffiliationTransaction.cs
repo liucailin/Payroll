@@ -4,7 +4,7 @@ namespace Payroll
 {
     class ChangNoaffiliationTransaction : ChangeAffiliationTransaction
     {
-        public ChangNoaffiliationTransaction(int empid) : base (empid)
+		public ChangNoaffiliationTransaction(int empid, PayrollDatabase database) : base (empid, database)
         {
         }
 
@@ -23,7 +23,7 @@ namespace Payroll
                 UnionAffiliation unionAffiliation =
                     affiliation as UnionAffiliation;
                 int memberId = unionAffiliation.MemberId;
-                PayrollDatabase.RemoveUnionMember(memberId);
+                database.RemoveUnionMember(memberId);
             }
         }
     }

@@ -6,7 +6,7 @@ namespace Payroll
     {
         private string newAddress;
 
-        public ChangeAddressTransaction(int empid, string newAddress) : base (empid)
+        public ChangeAddressTransaction(int empid, string newAddress, PayrollDatabase database) : base (empid, database)
         {
             this.newAddress = newAddress;
         }

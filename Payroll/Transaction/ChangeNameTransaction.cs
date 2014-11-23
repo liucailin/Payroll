@@ -6,7 +6,7 @@ namespace Payroll
     {
         private string newName;
 
-        public ChangeNameTransaction(int empid, string newName) : base (empid)
+        public ChangeNameTransaction(int empid, string newName, PayrollDatabase database) : base (empid, database)
         {
             this.newName = newName;
         }

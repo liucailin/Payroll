@@ -4,7 +4,7 @@ namespace Payroll
 {
     abstract class ChangeClassificationTransaction : ChangeEmployeeTransaction
     {
-        public ChangeClassificationTransaction(int empid) : base (empid)
+		public ChangeClassificationTransaction(int empid, PayrollDatabase database) : base (empid, database)
         {
         }
 

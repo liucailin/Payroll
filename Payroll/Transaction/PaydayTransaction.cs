@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 
 namespace Payroll
@@ -8,18 +8,18 @@ namespace Payroll
         private DateTime payDate;
         private Hashtable payChecks = new Hashtable();
 
-        public PaydayTransaction(DateTime payDate)
+        public PaydayTransaction(DateTime payDate, PayrollDatabase database) : base (database)
         {
             this.payDate = payDate;
         }
 
-        public void Execute()
+        public override void Execute()
         {
-            ArrayList employeeIds = PayrollDatabase.GetAllEmployeeIds();
+            ArrayList employeeIds = database.GetAllEmployeeIds();
 
             foreach (int empid in employeeIds)
             {
-                Employee e = PayrollDatabase.GetEmployee(empid);
+                Employee e = database.GetEmployee(empid);
                 if (e.IsPayDate(payDate))
                 {
 					DateTime startDate = e.GetPayStartDay(payDate);

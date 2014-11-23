@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Test\PayrollTest.cs" />
     <Compile Include="Transaction\AddEmployeeTransaction.cs" />
     <Compile Include="Transaction\AddSalariedEmployee.cs" />
     <Compile Include="Transaction\AddHourlyEmployee.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Transaction\SeriveChargeTransaction.cs" />
     <Compile Include="PaymentMethod\DirectMethod.cs" />
     <Compile Include="PaymentMethod\MailMethod.cs" />
-    <Compile Include="Test\PayrollTestAddEmployee.cs" />
     <Compile Include="PayrollApplication\PayrollApplication.cs" />
     <Compile Include="PayrollApplication\TransactionSource.cs" />
     <Compile Include="PayrollDatabase\PayrollDatabase.cs" />
@@ -98,6 +96,7 @@
     <Compile Include="TextParser\TextParserTransactonSource.cs" />
     <Compile Include="PaymentSchedule\PayCheck.cs" />
     <Compile Include="Util\DateUtil.cs" />
+    <Compile Include="PayrollDatabase\InMemoryPayrollDataBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

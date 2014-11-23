@@ -1,27 +1,44 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\AssemblyInfo.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\PaymentClassification\CommissionClassification.cs">
     <Files>
       <File FileName="Payroll\Test\PayrollTest.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentClassification\CommissionClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Employee\PayCheck.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Employee\Employee.cs" Line="27" Column="14" />
-      <File FileName="Payroll\Employee\Affiliation.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Employee\UnionAffiliation.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PaymentClassification\CommissionClassification.cs" Line="9" Column="25" />
       <File FileName="f:\Agline\Payroll\Payroll\Transaction\PaydayTransaction.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentSchedule\PaymentSchedule.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentSchedule\BiweeklySchedule.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentSchedule\MonthlySchedule.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentSchedule\WeeklySchedule.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentClassification\HourlyClassification.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentClassification\SalariedClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Employee\DateUtil.cs" Line="1" Column="1" />
       <File FileName="Payroll\AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Payroll\Transaction\AddCommissiondEmployee.cs" Line="7" Column="43" />
+      <File FileName="Payroll\Transaction\AddEmployeeTransaction.cs" Line="33" Column="23" />
+      <File FileName="Payroll\Transaction\AddHourlyEmployee.cs" Line="1" Column="1" />
+      <File FileName="Payroll\Transaction\AddSalariedEmployee.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PaymentClassification\ChangeSalariedClassification.cs" Line="5" Column="55" />
+      <File FileName="Payroll\PaymentClassification\ChangeClassificationTransaction.cs" Line="17" Column="54" />
+      <File FileName="Payroll\PaymentClassification\SalesReceipt.cs" Line="20" Column="1" />
+      <File FileName="Payroll\PaymentMethod\ChangeMethodTransaction.cs" Line="5" Column="38" />
+      <File FileName="Payroll\Transaction\SeriveChargeTransaction.cs" Line="25" Column="47" />
+      <File FileName="Payroll\Transaction\ChangeEmployeeTransaction.cs" Line="5" Column="5" />
+      <File FileName="Payroll\PayrollDomain\Transaction.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollDomain\PaymentSchedule.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollDomain\PaymentMethod.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollDomain\PaymentClassification.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollDomain\Employee.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollApplication\PayrollApplication.cs" Line="1" Column="1" />
+      <File FileName="Payroll\Transaction\TimeCardTransaction.cs" Line="19" Column="23" />
+      <File FileName="Payroll\PaymentClassification\ChangeCommissionClassification.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
-          <Node name="Payroll" expanded="True" />
+        <State expanded="True">
+          <Node name="Payroll" expanded="True">
+            <Node name="PaymentClassification" expanded="True">
+              <Node name="CommissionClassification.cs" selected="True" />
+            </Node>
+            <Node name="Transaction" expanded="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">

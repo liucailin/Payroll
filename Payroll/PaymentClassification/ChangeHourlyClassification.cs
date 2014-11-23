@@ -6,7 +6,7 @@ namespace Payroll
     {
         private double hour;
 
-        public ChangeHourlyClassification(int empid, double hour) : base (empid)
+        public ChangeHourlyClassification(int empid, double hour, PayrollDatabase database) : base (empid, database)
         {
             this.hour = hour;
         }

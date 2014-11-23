@@ -7,7 +7,7 @@ namespace Payroll
         private double percent;
         private double salary;
 
-        public ChangeCommissionClassification(int empid, double salary, double percent) : base (empid)
+		public ChangeCommissionClassification(int empid, double salary, double percent, PayrollDatabase database) : base (empid, database)
         {
             this.percent = percent;
 			this.salary = salary;

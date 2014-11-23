@@ -17,7 +17,7 @@ namespace Payroll
 		private readonly string name;
 		private readonly string address;
 
-		public AddEmployeeTransaction (int empid, string name, string address)
+		public AddEmployeeTransaction (int empid, string name, string address, PayrollDatabase database) : base (database)
 		{
 			this.empid = empid;
 			this.name = name;
@@ -28,7 +28,7 @@ namespace Payroll
 
 		protected abstract PaymentSchedule MakeSchedule();
 
-		public void Execute()
+		public override void Execute()
 		{
 			PaymentClassification pc = MakeClassification();
 			PaymentSchedule ps = MakeSchedule();
@@ -39,7 +39,7 @@ namespace Payroll
 			e.Schedule = ps;
 			e.Method = pm;
 
-			PayrollDatabase.AddEmployee(empid, e);
+			database.AddEmployee(empid, e);
 		}
 	}
 

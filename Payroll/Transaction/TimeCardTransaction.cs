@@ -16,16 +16,16 @@ namespace Payroll
 		private double hours;
 		private int empid;
 
-		public TimeCardTransaction (DateTime date, double hours, int empid)
+		public TimeCardTransaction (DateTime date, double hours, int empid, PayrollDatabase database) : base (database)
 		{
 			this.date = date;
 			this.hours = hours;
 			this.empid = empid;
 		}		
 
-		public void Execute ()
+		public override void Execute ()
 		{
-			Employee e = PayrollDatabase.GetEmployee(empid);
+			Employee e = database.GetEmployee(empid);
 			if (e != null)
 			{
 				HourlyClassification hc = e.Classification as HourlyClassification;

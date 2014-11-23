@@ -6,7 +6,7 @@ namespace Payroll
     {
         private double salary;
 
-        public ChangeSalariedClassification(int empid, double salary) : base (empid)
+		public ChangeSalariedClassification(int empid, double salary, PayrollDatabase database) : base (empid, database)
         {
             this.salary = salary;
         }

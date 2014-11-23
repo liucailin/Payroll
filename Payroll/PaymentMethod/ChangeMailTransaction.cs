@@ -4,7 +4,7 @@ namespace Payroll
 {
     class ChangeMailTransaction : ChangeMethodTransaction
     {
-        public ChangeMailTransaction(int empid) : base (empid)
+		public ChangeMailTransaction(int empid, PayrollDatabase database) : base (empid, database)
         {
         }
 

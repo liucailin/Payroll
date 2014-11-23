@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Payroll
 {
@@ -6,7 +6,7 @@ namespace Payroll
     {
         private int memberId;
         private double dues;
-        public ChangeMemberTransaction(int empId, int memberId, double dues) : base (empId)
+		public ChangeMemberTransaction(int empId, int memberId, double dues, PayrollDatabase database) : base (empId, database)
         {
             this.memberId = memberId;
             this.dues = dues;
@@ -24,7 +24,7 @@ namespace Payroll
         protected override void RecordMembership(Employee e)
         {
 
-            PayrollDatabase.AddUnionMember(memberId, e);
+            database.AddUnionMember(memberId, e);
 
         }
 

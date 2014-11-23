@@ -8,16 +8,16 @@ namespace Payroll
         private double chargeAmount;
         private int chargeMemberId;
 
-        public SeriveChargeTransaction(DateTime chargeDate, double chargeAmount, int chargeMemberId)
+        public SeriveChargeTransaction(DateTime chargeDate, double chargeAmount, int chargeMemberId, PayrollDatabase database) : base (database)
         {
             this.chargeDate = chargeDate;
             this.chargeAmount = chargeAmount;
             this.chargeMemberId = chargeMemberId;
         }        
 
-        public void Execute()
+        public override void Execute()
         {
-            Employee e = PayrollDatabase.GetUnionMember(chargeMemberId);
+            Employee e = database.GetUnionMember(chargeMemberId);
 
             if (e != null)
             {
