@@ -42,6 +42,10 @@
     <Reference Include="nunit.core.interfaces, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="MySql.Data">
+      <HintPath>Third\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -97,6 +101,8 @@
     <Compile Include="PaymentSchedule\PayCheck.cs" />
     <Compile Include="Util\DateUtil.cs" />
     <Compile Include="PayrollDatabase\InMemoryPayrollDataBase.cs" />
+    <Compile Include="Test\RealPayrollDatabaseTest.cs" />
+    <Compile Include="PayrollDatabase\RealPayrollDatabase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -112,5 +118,6 @@
     <Folder Include="Application\" />
     <Folder Include="TextParser\" />
     <Folder Include="Util\" />
+    <Folder Include="Third\" />
   </ItemGroup>
 </Project>
