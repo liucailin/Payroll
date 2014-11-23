@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tests>
+    <TestRecord Name="Payroll">
+      <Tests>
+        <TestRecord Name="Test">
+          <Tests>
+            <TestRecord Name="PayrollTest">
+              <Tests>
+                <TestRecord Name="PayCommissionEmployee">
+                  <Results>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:08:41</TestDate>
+                      <Passed>0</Passed>
+                      <Errors>1</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>System.NotImplementedException : 未实现该方法或操作。</Message>
+                      <StackTrace>   在 Payroll.CommissionClassification.CalculatePay(Paycheck paycheck) 位置 f:\Agline\Payroll\Payroll\PaymentClassification\CommissionClassification.cs:行号 35
+   在 Payroll.Employee.Payday(Paycheck paycheck) 位置 f:\Agline\Payroll\Payroll\Employee\Employee.cs:行号 68
+   在 Payroll.PaydayTransaction.Execute() 位置 f:\Agline\Payroll\Payroll\Transaction\PaydayTransaction.cs:行号 27
+   在 Payroll.Test.PayrollTest.PayCommissionEmployee() 位置 f:\Agline\Payroll\Payroll\Test\PayrollTest.cs:行号 319</StackTrace>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:11:22</TestDate>
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0.02ms</Message>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:13:04</TestDate>
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0.02ms</Message>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:13:34</TestDate>
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0.02ms</Message>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:13:48</TestDate>
+                      <Passed>0</Passed>
+                      <Errors>0</Errors>
+                      <Failures>1</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>  Expected: 2010.0d
+  But was:  2000.0d
+</Message>
+                      <StackTrace>   在 NUnit.Framework.Assert.That(Object actual, IResolveConstraint expression, String message, Object[] args)
+   在 NUnit.Framework.Assert.AreEqual(Object expected, Object actual)
+   在 Payroll.Test.PayrollTest.PayCommissionEmployee() 位置 f:\Agline\Payroll\Payroll\Test\PayrollTest.cs:行号 328</StackTrace>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:17:51</TestDate>
+                      <Passed>0</Passed>
+                      <Errors>1</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>System.InvalidCastException : 无法将类型为“System.Collections.DictionaryEntry”的对象强制转换为类型“Payroll.SalesReceipt”。</Message>
+                      <StackTrace>   在 Payroll.CommissionClassification.CalculatePay(Paycheck paycheck) 位置 f:\Agline\Payroll\Payroll\PaymentClassification\CommissionClassification.cs:行号 38
+   在 Payroll.Employee.Payday(Paycheck paycheck) 位置 f:\Agline\Payroll\Payroll\Employee\Employee.cs:行号 68
+   在 Payroll.PaydayTransaction.Execute() 位置 f:\Agline\Payroll\Payroll\Transaction\PaydayTransaction.cs:行号 27
+   在 Payroll.Test.PayrollTest.PayCommissionEmployee() 位置 f:\Agline\Payroll\Payroll\Test\PayrollTest.cs:行号 323</StackTrace>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:18:57</TestDate>
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0.02ms</Message>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:19:21</TestDate>
+                      <Passed>0</Passed>
+                      <Errors>0</Errors>
+                      <Failures>1</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>  Expected: 2010.0d
+  But was:  2000.0d
+</Message>
+                      <StackTrace>   在 NUnit.Framework.Assert.That(Object actual, IResolveConstraint expression, String message, Object[] args)
+   在 NUnit.Framework.Assert.AreEqual(Object expected, Object actual)
+   在 Payroll.Test.PayrollTest.PayCommissionEmployee() 位置 f:\Agline\Payroll\Payroll\Test\PayrollTest.cs:行号 328</StackTrace>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:20:22</TestDate>
+                      <Passed>0</Passed>
+                      <Errors>0</Errors>
+                      <Failures>1</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>  Expected: not null
+  But was:  null
+</Message>
+                      <StackTrace>   在 NUnit.Framework.Assert.That(Object actual, IResolveConstraint expression, String message, Object[] args)
+   在 NUnit.Framework.Assert.IsNotNull(Object anObject)
+   在 Payroll.Test.PayrollTest.PayCommissionEmployee() 位置 f:\Agline\Payroll\Payroll\Test\PayrollTest.cs:行号 326</StackTrace>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2014-11-12T00:20:37</TestDate>
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0.02ms</Message>
+                      <ConsoleOutput>pay method
+</ConsoleOutput>
+                      <ConsoleError />
+                    </UnitTestResult>
+                  </Results>
+                </TestRecord>
+              </Tests>
+            </TestRecord>
+          </Tests>
+        </TestRecord>
+      </Tests>
+    </TestRecord>
+  </Tests>
+</TestRecord>

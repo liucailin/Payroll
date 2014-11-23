@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE758940-8BC7-4B38-A140-8F361A85496B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Payroll</RootNamespace>
+    <AssemblyName>Payroll</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.core, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Test\PayrollTest.cs" />
+    <Compile Include="Transaction\AddEmployeeTransaction.cs" />
+    <Compile Include="Transaction\AddSalariedEmployee.cs" />
+    <Compile Include="Transaction\AddHourlyEmployee.cs" />
+    <Compile Include="PaymentSchedule\MonthlySchedule.cs" />
+    <Compile Include="PaymentClassification\HourlyClassification.cs" />
+    <Compile Include="PaymentClassification\PaymentClassification.cs" />
+    <Compile Include="PaymentMethod\PaymentMethod.cs" />
+    <Compile Include="Transaction\Transaction.cs" />
+    <Compile Include="PaymentSchedule\PaymentSchedule.cs" />
+    <Compile Include="PaymentClassification\SalariedClassification.cs" />
+    <Compile Include="PaymentMethod\HoldMethod.cs" />
+    <Compile Include="Employee\Employee.cs" />
+    <Compile Include="Employee\PayrollDatabase.cs" />
+    <Compile Include="PaymentSchedule\WeeklySchedule.cs" />
+    <Compile Include="PaymentSchedule\BiweeklySchedule.cs" />
+    <Compile Include="Transaction\AddCommissiondEmployee.cs" />
+    <Compile Include="PaymentClassification\CommissionClassification.cs" />
+    <Compile Include="Transaction\DeleteEmployeeTransaction.cs" />
+    <Compile Include="Transaction\TimeCardTransaction.cs" />
+    <Compile Include="PaymentClassification\TimeCard.cs" />
+    <Compile Include="Transaction\SalesReceiptTransaction.cs" />
+    <Compile Include="Transaction\SalesReceipt.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Test\" />
+    <Folder Include="Transaction\" />
+    <Folder Include="PaymentMethod\" />
+    <Folder Include="PaymentSchedule\" />
+    <Folder Include="PaymentClassification\" />
+    <Folder Include="Employee\" />
+  </ItemGroup>
+</Project>
