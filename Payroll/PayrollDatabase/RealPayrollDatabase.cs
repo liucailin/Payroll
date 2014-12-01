@@ -17,21 +17,40 @@ namespace Payroll
 
 		public RealPayrollDatabase()
 		{
-			string connectionString = 
-				"Server=localhost;" +
-				"Database=Payroll;" +
-				"User ID=sa;" +
-				"Password=sa;" +
-				"Pooling=false";
+			MySql.Data.MySqlClient.MySqlConnection conn;
+			string myConnectionString;
+			
+			/*myConnectionString = "server=104.224.133.206;uid=root;" +
+				"pwd=root;database=test;pooling=true;";*/
 
-			connection = new MySqlConnection(connectionString);
-			connection.Open();
+			myConnectionString = "server=127.0.0.1;uid=root;" +
+				"pwd=0903;database=payroll;pooling=true;";
+			
+			try
+			{
+				connection = new MySql.Data.MySqlClient.MySqlConnection();
+				connection.ConnectionString = myConnectionString;
+				connection.Open();
+			}
+			catch (MySql.Data.MySqlClient.MySqlException ex)
+			{
+				Console.WriteLine(ex.Number + " " + ex.Message);
+			}
 		}
 
 		public void AddEmployee (int id, Employee employee)
 		{
-			string addCommand = "";
-			MySqlCommand command = new MySqlCommand("", connection);
+			string addCommand = "insert into Employee values (@EmpId, @Name, @Address)";
+			MySqlCommand command = new MySqlCommand(addCommand, connection);
+
+			command.Prepare();
+			command.Parameters.AddWithValue("@EmpId", employee.EmpId);
+			command.Parameters.AddWithValue("@Name", employee.Name);
+			command.Parameters.AddWithValue("@Address", employee.Address);
+
+			command.ExecuteNonQuery();
+			//command.Parameters.AddWithValue("@Address", employee.Address);
+
 
 		}
 
