@@ -70,7 +70,6 @@
     <Compile Include="Transaction\ChangeNameTransaction.cs" />
     <Compile Include="Transaction\PaydayTransaction.cs" />
     <Compile Include="Transaction\SeriveChargeTransaction.cs" />
-    <Compile Include="PaymentMethod\DirectMethod.cs" />
     <Compile Include="PaymentMethod\MailMethod.cs" />
     <Compile Include="PayrollApplication\PayrollApplication.cs" />
     <Compile Include="PayrollApplication\TransactionSource.cs" />
@@ -103,7 +102,8 @@
     <Compile Include="Util\DateUtil.cs" />
     <Compile Include="PayrollDatabase\InMemoryPayrollDataBase.cs" />
     <Compile Include="Test\RealPayrollDatabaseTest.cs" />
-    <Compile Include="PayrollDatabase\RealPayrollDatabase.cs" />
+    <Compile Include="PayrollDatabase\MySqlPayrollDatabase.cs" />
+    <Compile Include="PaymentMethod\DirectDepositMethod.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

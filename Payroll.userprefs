@@ -1,42 +1,27 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\PaymentClassification\CommissionClassification.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\PayrollDatabase\MySqlPayrollDatabase.cs">
     <Files>
-      <File FileName="Payroll\Test\PayrollTest.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentClassification\CommissionClassification.cs" Line="9" Column="25" />
-      <File FileName="f:\Agline\Payroll\Payroll\Transaction\PaydayTransaction.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentSchedule\BiweeklySchedule.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentSchedule\MonthlySchedule.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentSchedule\WeeklySchedule.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentClassification\HourlyClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentClassification\SalariedClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\AddCommissiondEmployee.cs" Line="7" Column="43" />
-      <File FileName="Payroll\Transaction\AddEmployeeTransaction.cs" Line="33" Column="23" />
-      <File FileName="Payroll\Transaction\AddHourlyEmployee.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\AddSalariedEmployee.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentClassification\ChangeSalariedClassification.cs" Line="5" Column="55" />
-      <File FileName="Payroll\PaymentClassification\ChangeClassificationTransaction.cs" Line="17" Column="54" />
-      <File FileName="Payroll\PaymentClassification\SalesReceipt.cs" Line="20" Column="1" />
-      <File FileName="Payroll\PaymentMethod\ChangeMethodTransaction.cs" Line="5" Column="38" />
-      <File FileName="Payroll\Transaction\SeriveChargeTransaction.cs" Line="25" Column="47" />
-      <File FileName="Payroll\Transaction\ChangeEmployeeTransaction.cs" Line="5" Column="5" />
-      <File FileName="Payroll\PayrollDomain\Transaction.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PayrollDomain\PaymentSchedule.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PayrollDomain\PaymentMethod.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PayrollDomain\PaymentClassification.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PayrollDomain\Employee.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PayrollApplication\PayrollApplication.cs" Line="1" Column="1" />
-      <File FileName="Payroll\Transaction\TimeCardTransaction.cs" Line="19" Column="23" />
-      <File FileName="Payroll\PaymentClassification\ChangeCommissionClassification.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollDatabase\MySqlPayrollDatabase.cs" Line="22" Column="4" />
+      <File FileName="Payroll\Test\RealPayrollDatabaseTest.cs" Line="22" Column="47" />
+      <File FileName="Payroll\PaymentSchedule\MonthlySchedule.cs" Line="13" Column="2" />
+      <File FileName="Payroll\PaymentMethod\DirectDepositMethod.cs" Line="11" Column="4" />
+      <File FileName="Payroll\PaymentMethod\HoldMethod.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PaymentMethod\MailMethod.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PaymentMethod\ChangeDirectTransaction.cs" Line="13" Column="24" />
+      <File FileName="Payroll\PayrollDatabase\PayrollDatabase.cs" Line="8" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Payroll" expanded="True">
-            <Node name="PaymentClassification" expanded="True">
-              <Node name="CommissionClassification.cs" selected="True" />
+            <Node name="PaymentClassification" expanded="True" />
+            <Node name="PaymentMethod" expanded="True" />
+            <Node name="PaymentSchedule" expanded="True" />
+            <Node name="PayrollDatabase" expanded="True">
+              <Node name="MySqlPayrollDatabase.cs" selected="True" />
             </Node>
+            <Node name="Test" expanded="True" />
             <Node name="Transaction" expanded="True" />
           </Node>
         </State>
@@ -48,7 +33,17 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Payroll" expanded="True">
+            <Node name="Payroll" expanded="True">
+              <Node name="Test" expanded="True">
+                <Node name="RealPayrollDatabaseTest" expanded="True">
+                  <Node name="AddEmployee" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

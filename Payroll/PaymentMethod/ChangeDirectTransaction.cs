@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Payroll
 {
@@ -10,7 +10,7 @@ namespace Payroll
 
         protected override PaymentMethod GetMethod()
         {
-            return new DirectMethod();
+            return new DirectDepositMethod();
         }
     }
 }

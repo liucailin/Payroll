@@ -11,20 +11,19 @@ using System;
 using MySql.Data.MySqlClient;
 namespace Payroll
 {
-	class RealPayrollDatabase : PayrollDatabase
+	class MySqlPayrollDatabase : PayrollDatabase
 	{
 		private MySqlConnection connection;
 
-		public RealPayrollDatabase()
+		public MySqlPayrollDatabase()
 		{
-			MySql.Data.MySqlClient.MySqlConnection conn;
 			string myConnectionString;
 			
-			/*myConnectionString = "server=104.224.133.206;uid=root;" +
-				"pwd=root;database=test;pooling=true;";*/
+			myConnectionString = "server=104.224.133.206;uid=liucailin;" +
+				"pwd=0903;database=Payroll;pooling=true;";
 
-			myConnectionString = "server=127.0.0.1;uid=root;" +
-				"pwd=0903;database=payroll;pooling=true;";
+			/*myConnectionString = "server=127.0.0.1;uid=root;" +
+				"pwd=0903;database=payroll;pooling=true;";*/
 			
 			try
 			{
@@ -40,18 +39,33 @@ namespace Payroll
 
 		public void AddEmployee (int id, Employee employee)
 		{
-			string addCommand = "insert into Employee values (@EmpId, @Name, @Address)";
+			string addCommand = "insert into Employee values (@EmpId, @Name, @Address, " +
+				"@ScheduleType, @PaymentMethodType, @PaymentClassificationType)";
 			MySqlCommand command = new MySqlCommand(addCommand, connection);
 
 			command.Prepare();
 			command.Parameters.AddWithValue("@EmpId", employee.EmpId);
 			command.Parameters.AddWithValue("@Name", employee.Name);
 			command.Parameters.AddWithValue("@Address", employee.Address);
+			//command.Parameters.AddWithValue("@ScheduleType", employee.Schedule.GetType().Name);
+			command.Parameters.AddWithValue("@ScheduleType", ScheduleCode(employee.Schedule));
+			command.Parameters.AddWithValue("@PaymentMethodType", employee.Method.GetType().Name);
+			command.Parameters.AddWithValue("@PaymentClassificationType", employee.Classification.GetType().Name);
 
 			command.ExecuteNonQuery();
-			//command.Parameters.AddWithValue("@Address", employee.Address);
 
+		}
 
+		private static string ScheduleCode(PaymentSchedule schedule)
+		{
+			if (schedule is MonthlySchedule)
+				return "monthly";
+			else if (schedule is WeeklySchedule)
+				return "weekly";
+			else if (schedule is BiweeklySchedule)
+				return "biweekly";
+			else
+				return "unkonw";
 		}
 
 		public Employee GetEmployee (int id)
