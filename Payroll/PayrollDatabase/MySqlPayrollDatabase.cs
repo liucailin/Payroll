@@ -49,11 +49,30 @@ namespace Payroll
 			command.Parameters.AddWithValue("@Address", employee.Address);
 			//command.Parameters.AddWithValue("@ScheduleType", employee.Schedule.GetType().Name);
 			command.Parameters.AddWithValue("@ScheduleType", ScheduleCode(employee.Schedule));
-			command.Parameters.AddWithValue("@PaymentMethodType", employee.Method.GetType().Name);
+			//command.Parameters.AddWithValue("@PaymentMethodType", employee.Method.GetType().Name);
+			SavePaymentMethod(employee);
+			command.Parameters.AddWithValue("@PaymentMethodType", MethodCode(employee.Method));
+
 			command.Parameters.AddWithValue("@PaymentClassificationType", employee.Classification.GetType().Name);
 
 			command.ExecuteNonQuery();
 
+		}
+
+		private void SavePaymentMethod(Employee employee)
+		{
+			PaymentMethod method = employee.Method;
+			if (method is DirectDepositMethod)
+			{
+				DirectDepositMethod ddMethod = method as DirectDepositMethod;
+				string add = "insert into DirectDepositAccount values (@Bank, @Account, @EmpId)";
+				MySqlCommand addCommand = new MySqlCommand(add, connection);
+				addCommand.Parameters.AddWithValue("@Bank", ddMethod.Bankname);
+				addCommand.Parameters.AddWithValue("@Account", ddMethod.Account);
+				addCommand.Parameters.AddWithValue("@EmpId", employee.EmpId);
+
+				addCommand.ExecuteNonQuery();
+			}
 		}
 
 		private static string ScheduleCode(PaymentSchedule schedule)
@@ -64,6 +83,18 @@ namespace Payroll
 				return "weekly";
 			else if (schedule is BiweeklySchedule)
 				return "biweekly";
+			else
+				return "unkonw";
+		}
+
+		private static string MethodCode(PaymentMethod method)
+		{
+			if (method is HoldMethod)
+				return "hold";
+			else if (method is DirectDepositMethod)
+				return "directdeposite";
+			else if (method is MailMethod)
+				return "mail";
 			else
 				return "unkonw";
 		}

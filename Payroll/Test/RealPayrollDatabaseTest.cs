@@ -28,13 +28,19 @@ namespace Payroll.Test
 				connection = new MySql.Data.MySqlClient.MySqlConnection();
 				connection.ConnectionString = myConnectionString;
 				connection.Open();
-				new MySqlCommand ("delete from Employee", connection).ExecuteNonQuery();
+				ClearDatabase();
 			}
 			catch (MySql.Data.MySqlClient.MySqlException ex)
 			{
 				Console.WriteLine(ex.Number + " " + ex.Message);
 			}
 			AddJuly();
+		}
+
+		void ClearDatabase()
+		{
+			new MySqlCommand ("delete from Employee", connection).ExecuteNonQuery();
+			new MySqlCommand ("delete from DirectDepositAccount", connection).ExecuteNonQuery();
 		}
 
 		void AddJuly ()
@@ -45,9 +51,9 @@ namespace Payroll.Test
 			employee.Method = new DirectDepositMethod();
 		}
 
-		DataTable GetEmployeeTable ()
+		DataTable LoadTable (string tableName)
 		{
-			MySqlCommand c = new MySqlCommand ("select * from Employee", connection);
+			MySqlCommand c = new MySqlCommand (string.Format("select * from {0}", tableName), connection);
 			MySqlDataAdapter ad = new MySqlDataAdapter (c);
 			DataSet ds = new DataSet ();
 			ad.Fill (ds);
@@ -59,7 +65,7 @@ namespace Payroll.Test
 		public void AddEmployee()
 		{
 			database.AddEmployee(123, employee);
-			var table = GetEmployeeTable ();
+			var table = LoadTable ("Employee");
 
 			Assert.AreEqual(1, table.Rows.Count);
 			DataRow row = table.Rows[0];
@@ -72,26 +78,58 @@ namespace Payroll.Test
 		public void ScheduleGetsSaved()
 		{
 			database.AddEmployee(123, employee);
-			var table = GetEmployeeTable();
+			var table = LoadTable("Employee");
 
 			Assert.AreEqual(1, table.Rows.Count);
 			DataRow row = table.Rows[0];
 			Assert.AreEqual("monthly", row["ScheduleType"]);
 		}
 
+		private void CheckSavedSchedule(PaymentSchedule schedule, string expectedCode)
+		{
+			employee.Schedule = schedule;
+			database.AddEmployee(123, employee);
+			
+			DataTable table = LoadTable("Employee");
+			DataRow row = table.Rows[0];
+
+			Assert.AreEqual(expectedCode, row["ScheduleType"]);
+		}
+
 		[Test]
 		public void MethodsGetsSaved()
 		{
+			CheckSavedPaymentMethod(new HoldMethod(), "hold");
+			ClearDatabase();
+			CheckSavedPaymentMethod(new DirectDepositMethod("Bank -1", 01234), "directdeposite");
+			ClearDatabase();
+			CheckSavedPaymentMethod(new MailMethod(), "mail");	
+			ClearDatabase();
+		}
 
+		[Test]
+		public void DirectDepositeMethodGetSaved()
+		{
+			CheckSavedPaymentMethod(new DirectDepositMethod("Bank -1", 101234), "directdeposite");
+
+			var table = LoadTable("DirectDepositAccount");
+			Assert.AreEqual(1, table.Rows.Count);
+			var row = table.Rows[0];
+			Assert.AreEqual("Bank -1", row["Bank"]);
+			Assert.AreEqual(101234, row["Account"]);
+			Assert.AreEqual(123, row["EmpId"]);
 		}
 
 		private void CheckSavedPaymentMethod(PaymentMethod method, string expectedCode)
 		{
-			if (method is DirectDepositMethod)
-			{
+			employee.Method = method;
+			database.AddEmployee(123, employee);
 
-			}
+			DataTable table = LoadTable("Employee");
+			Assert.AreEqual(1, table.Rows.Count);
+			DataRow row = table.Rows[0];
 
+			Assert.AreEqual(expectedCode, row["PaymentMethodType"]);
 		}
 
 		[TearDown]

@@ -3,24 +3,24 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Payroll\PayrollDatabase\MySqlPayrollDatabase.cs">
     <Files>
       <File FileName="Payroll\PayrollDatabase\MySqlPayrollDatabase.cs" Line="22" Column="4" />
-      <File FileName="Payroll\Test\RealPayrollDatabaseTest.cs" Line="22" Column="47" />
-      <File FileName="Payroll\PaymentSchedule\MonthlySchedule.cs" Line="13" Column="2" />
-      <File FileName="Payroll\PaymentMethod\DirectDepositMethod.cs" Line="11" Column="4" />
+      <File FileName="Payroll\Test\RealPayrollDatabaseTest.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PaymentSchedule\MonthlySchedule.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PaymentMethod\DirectDepositMethod.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentMethod\HoldMethod.cs" Line="1" Column="1" />
       <File FileName="Payroll\PaymentMethod\MailMethod.cs" Line="1" Column="1" />
-      <File FileName="Payroll\PaymentMethod\ChangeDirectTransaction.cs" Line="13" Column="24" />
-      <File FileName="Payroll\PayrollDatabase\PayrollDatabase.cs" Line="8" Column="3" />
+      <File FileName="Payroll\PaymentMethod\ChangeDirectTransaction.cs" Line="1" Column="1" />
+      <File FileName="Payroll\PayrollDatabase\PayrollDatabase.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Payroll" expanded="True">
             <Node name="PaymentClassification" expanded="True" />
-            <Node name="PaymentMethod" expanded="True" />
-            <Node name="PaymentSchedule" expanded="True" />
-            <Node name="PayrollDatabase" expanded="True">
-              <Node name="MySqlPayrollDatabase.cs" selected="True" />
+            <Node name="PaymentMethod" expanded="True">
+              <Node name="ChangeMailTransaction.cs" selected="True" />
             </Node>
+            <Node name="PaymentSchedule" expanded="True" />
+            <Node name="PayrollDatabase" expanded="True" />
             <Node name="Test" expanded="True" />
             <Node name="Transaction" expanded="True" />
           </Node>
@@ -33,17 +33,7 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="Payroll" expanded="True">
-            <Node name="Payroll" expanded="True">
-              <Node name="Test" expanded="True">
-                <Node name="RealPayrollDatabaseTest" expanded="True">
-                  <Node name="AddEmployee" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

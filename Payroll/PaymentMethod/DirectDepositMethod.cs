@@ -5,13 +5,13 @@ namespace Payroll
     class DirectDepositMethod : PaymentMethod
     {
 		private string bankname;
-		private string account;
+		private long account;
 
 		public DirectDepositMethod()
 		{
 		}
 
-        public DirectDepositMethod(string bankname, string account)
+        public DirectDepositMethod(string bankname, long account)
         {
 			this.bankname = bankname;
 			this.account = account;
@@ -26,7 +26,7 @@ namespace Payroll
 			}
 		}
 
-		public string Account {
+		public long Account {
 			get {
 				return account;
 			}
